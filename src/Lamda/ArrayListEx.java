@@ -10,10 +10,11 @@ public class ArrayListEx {
         int size = scanner.nextInt();
         ArrayList<String> arrayList = new ArrayList<String>(size);
 //        System.out.println("Enter the names for an ArrayList:");
-        for (int x = 0; x < size; x++){
+        for (int x = 1; x <= size; x++){
             System.out.println("Enter " + x + " Location Name:");
             String name = scanner.nextLine();
             arrayList.add(name);
+            System.out.println("Name Added to Arraylist!");
         }
         System.out.println("ArrayList contents are: ");
         System.out.println(arrayList);
