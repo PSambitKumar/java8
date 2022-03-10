@@ -66,8 +66,24 @@ class MethodsForCase{
     }
 
 //    For Case 6
+    public String checkData(){
+        System.out.println("Enter Data to check");
+        String check = scanner.nextLine();
+        if (hashSet.contains(check))
+            System.out.println(check + "Present");
+        else
+            System.out.println(check + "Doesn't Present");
+        return "Process End";
+    }
 
+//    For Case 7
+    public String deleteAllData(){
+        hashSet.clear();
+        System.out.println(hashSet);
+        return "Data Deletion Successfully";
+    }
 }
+
 
 public class HashSetExample {
     public static void main(String[] args) {
@@ -102,12 +118,14 @@ public class HashSetExample {
                     System.out.println(message);
                     break;
                 case 6:
+                    message = methodsForCase.checkData();
+                    System.out.println(message);
                     break;
                 case 7:
+                    message = methodsForCase.deleteAllData();
+                    System.out.println(message);
                     break;
                 case 8:
-                    break;
-                case 9:
                     System.exit(0);
                     break;
                 default:

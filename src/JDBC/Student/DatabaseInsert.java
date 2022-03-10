@@ -1,18 +1,40 @@
-package JDBC;
+package JDBC.Student;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+import JDBC.UtilJDBC;
+
+import java.sql.*;
 
 public class DatabaseInsert {
-    static Connection connection = null;
-    private String sql = "INSET INTO student (`sname`, `sdob`, `stream`) VALUES(?, ?, ?) ";
+    static Connection connection = UtilJDBC.databaseConnection();
+
     public static void main(String[] args) {
-        try{
-            UtilJDBC utilJDBC = new UtilJDBC();
-            connection = utilJDBC.databaseConnection();
-            PreparedStatement preparedStatement =
-        }catch(Exception e){
-            e.printStackTrace();
-        }
+
+            System.out.println(connection);
+
+            if (connection != null) {
+                try {
+                    Student student = new Student();
+                    String sql = "INSERT INTO STUDENT(sname, sdob, stream) VALUES(?,?,?)";
+                    student.setSname("Dillip");
+                    student.setSdob(Date.valueOf("2015-03-31"));
+                    student.setStream("CSA");
+
+                    PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                    preparedStatement.setString(1, student.getSname());
+                    preparedStatement.setDate(2, student.getSdob());
+                    preparedStatement.setString(3, student.getStream());
+
+                    int update = preparedStatement.executeUpdate();
+
+                    if (update > 0)
+                        System.out.println("Data Inserted To Table Successfully");
+                    else
+                        System.out.println("Data Insertion Failed");
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+            else
+                System.out.println("Database Connection Failed");
     }
 }
