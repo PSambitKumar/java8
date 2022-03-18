@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
-class Employee2 {
+class  Employee2 {
     int empcode;
     String firstName;
     String lastName;
