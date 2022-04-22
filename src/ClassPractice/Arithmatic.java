@@ -1,5 +1,7 @@
 package ClassPractice;
 
+import java.util.Objects;
+
 public class Arithmatic {
     int addition;
     int subtraction;
@@ -45,7 +47,18 @@ public class Arithmatic {
         this.division = division;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Arithmatic)) return false;
+        Arithmatic that = (Arithmatic) o;
+        return getAddition() == that.getAddition() && getSubtraction() == that.getSubtraction() && getMultiplication() == that.getMultiplication() && getDivision() == that.getDivision();
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getAddition(), getSubtraction(), getMultiplication(), getDivision());
+    }
 
     @Override
     public String toString() {
