@@ -11,5 +11,6 @@ class mainMethod{
     public static void main(String[] args) {
         printData print = DoubleQuote::data;
         print.printData();
+        System.out.println(print);
     }
 }
